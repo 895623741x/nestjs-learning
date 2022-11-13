@@ -10,7 +10,8 @@ export class BlogService {
 
   async addPost(createPostDTO: CreatePostDTO): Promise<Post> {
     const newPost = await new this.postModel(createPostDTO);
-    return newPost;
+    console.log(newPost);
+    return newPost.save();
   }
 
   async getPost(postID): Promise<Post> {
@@ -20,6 +21,7 @@ export class BlogService {
 
   async getPosts(): Promise<Post[]> {
     const posts = await this.postModel.find().exec();
+    console.log(posts);
     return posts;
   }
 
@@ -31,8 +33,7 @@ export class BlogService {
     );
     return editedPost;
   }
-
-  async deletePost(postID): Promise<Post> {
+  async deletePost(postID): Promise<any> {
     const deletedPost = await this.postModel.findByIdAndRemove(postID);
     return deletedPost;
   }

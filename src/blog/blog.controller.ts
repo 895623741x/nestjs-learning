@@ -45,7 +45,7 @@ export class BlogController {
   // fetch all the posts
   @Get('posts')
   async getPosts(@Res() res) {
-    const posts = this.blogService.getPosts();
+    const posts = await this.blogService.getPosts();
     return res.status(HttpStatus.OK).json(posts);
   }
 
