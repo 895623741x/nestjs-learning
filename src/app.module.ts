@@ -6,12 +6,9 @@ import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://895623741x:895623741c@api.pvt83fk.mongodb.net/?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-      },
-    ),
+    MongooseModule.forRoot('mongodb://localhost:27017', {
+      useNewUrlParser: true,
+    }),
     BlogModule,
   ],
   controllers: [AppController],
